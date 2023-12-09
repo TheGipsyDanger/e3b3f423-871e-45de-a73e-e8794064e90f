@@ -1,4 +1,4 @@
-import { createCustomAction, getType } from "typesafe-actions";
+import { createCustomAction } from "typesafe-actions";
 
 export const setStatus = createCustomAction(
   "Initial/setStatus",

@@ -1,5 +1,2 @@
-import Initial from "./Initial";
-
-export const reducers = {
-  Initial,
-};
+export { default as Initial } from "./Initial";
+// Import redux here

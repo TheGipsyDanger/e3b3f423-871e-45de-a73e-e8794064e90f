@@ -1,0 +1,8 @@
+import { createCustomAction } from "typesafe-actions";
+
+export const initalAction = createCustomAction(
+  "Initial/setStatus",
+  (status: string) => ({
+    payload: status,
+  })
+);

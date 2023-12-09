@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "g": "plop",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -11,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.0.1",
     "next": "14.0.4",
+    "plop": "^4.0.0",
     "react": "^18",
     "react-dom": "^18",
     "react-redux": "^9.0.2",
