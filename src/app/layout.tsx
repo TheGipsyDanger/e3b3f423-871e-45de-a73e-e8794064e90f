@@ -1,5 +1,6 @@
 "use client";
 import { Inter } from "next/font/google";
+import Provider from "@/redux/Provider";
 import "./globals.css";
 
 import { StyledComponentsRegistry, ThemeProvider } from "@/styles";
@@ -12,12 +13,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <StyledComponentsRegistry>
-      <ThemeProvider>
-        <html lang="en">
-          <body className={inter.className}>{children}</body>
-        </html>
-      </ThemeProvider>
-    </StyledComponentsRegistry>
+    <Provider>
+      <StyledComponentsRegistry>
+        <ThemeProvider>
+          <html lang="en">
+            <body className={inter.className}>{children}</body>
+          </html>
+        </ThemeProvider>
+      </StyledComponentsRegistry>
+    </Provider>
   );
 }
