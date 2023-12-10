@@ -23,6 +23,11 @@ module.exports = (plop) => {
       const actions = [
         {
           type: "add",
+          path: pathToIndex,
+          templateFile: `${pathToTemplate}/index.js.hbs`,
+        },
+        {
+          type: "add",
           path: pathToStyle,
           templateFile: `${pathToTemplate}/styles.js.hbs`,
         },
