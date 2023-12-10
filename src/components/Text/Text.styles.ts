@@ -11,6 +11,12 @@ const variantsText = {
   h3: css`
     font-size: ${({ theme }) => theme.fontSizes.h3}px;
   `,
+  h4: css`
+    font-size: ${({ theme }) => theme.fontSizes.h4}px;
+  `,
+  body: css`
+    font-size: ${({ theme }) => theme.fontSizes.body}px;
+  `,
 };
 
 export default {
