@@ -57,13 +57,29 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
         />
         <Controller
           control={control}
+          name="suggestedValue"
+          defaultValue=""
+          render={({ field: { onChange, onBlur, value, name } }) => (
+            <Input.OneLine
+              id="suggestedValue"
+              label="valor sugerido"
+              placeholder="20,00"
+              containerClassName="mb-4"
+              currency={true}
+              {...{ onChange, onBlur, value, name, trigger, errors }}
+            />
+          )}
+        />
+        <Controller
+          control={control}
           name="description"
           defaultValue=""
           render={({ field: { onChange, onBlur, value, name } }) => (
             <Input.TextArea
               id="description"
-              label="Descrição"
+              label="Descrição *"
               placeholder="Comemoração do aniversário do Renan"
+              className="resize-none"
               containerClassName="mb-4"
               {...{ onChange, onBlur, value, name, trigger, errors }}
             />
@@ -76,8 +92,9 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
           render={({ field: { onChange, onBlur, value, name } }) => (
             <Input.TextArea
               id="obs"
-              label="Observações"
+              label="Observações *"
               placeholder="Vai ter open-bar"
+              className="resize-none"
               containerClassName="mb-8"
               {...{ onChange, onBlur, value, name, trigger, errors }}
             />
