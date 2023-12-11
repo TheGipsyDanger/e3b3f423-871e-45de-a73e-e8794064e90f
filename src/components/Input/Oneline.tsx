@@ -20,15 +20,6 @@ export const OneLine = ({
   containerClassName,
 }: IInput.IView) => {
   const { applyMask, removeMask } = useCurrency();
-  // if (currency) {
-  //   // if (value == "") return value;
-  //   console.log({ value });
-  //   if (value !== "") {
-  //     value = transformInBr(value);
-  //   }
-  // }
-
-  console.log({ value });
 
   return (
     <div id={`Input-${id}`} className={containerClassName}>
