@@ -1,4 +1,6 @@
 import { HTMLInputTypeAttribute } from "react";
+import { HTMLProps } from "react";
+
 import {
   IFormErrosAccepeted,
   IFormInputNameAccepeted,
@@ -10,6 +12,8 @@ export namespace IInput {
     id: string;
     label?: string;
     value: string;
+    containerClassName?: HTMLProps<HTMLElement>["className"];
+    className?: HTMLProps<HTMLElement>["className"];
     type?: HTMLInputTypeAttribute;
     placeholder?: string;
     required?: boolean;

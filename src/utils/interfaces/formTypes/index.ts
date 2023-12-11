@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from "react-hook-form";
 
-import { ILoginForm } from "../formSchema";
+import { ILoginForm, ICreateBbqsForm } from "../formSchema";
 
 import * as yup from "yup";
 
@@ -23,8 +23,13 @@ export type ISchema<
   T2 extends yup.Maybe<yup.AnyObject>
 > = yup.ObjectSchema<T1, yup.AnyObject, T2, "">;
 
-export type IFormInputNameAccepeted = keyof ILoginForm<string>;
+export type IFormInputNameAccepeted =
+  | keyof ILoginForm<string>
+  | keyof ICreateBbqsForm<string>;
 
-export type IFormErrosAccepeted = IFormErros<ILoginForm<string>>;
+export type IFormErrosAccepeted = IFormErros<ILoginForm<string>> &
+  IFormErros<ICreateBbqsForm<string>>;
 
-export type ITriggerFormInput = ITrigger<ILoginForm<string>>;
+export type ITriggerFormInput =
+  | ITrigger<ILoginForm<string>>
+  | ITrigger<ICreateBbqsForm<string>>;
