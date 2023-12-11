@@ -5,6 +5,7 @@ const exec = (): ISchema<ICreateBbqsForm<string>, ICreateBbqsForm<any>> => {
   return yup.object().shape({
     title: yup.string().trim().required("Campo obrigatório"),
     date: yup.string().trim().required("Campo obrigatório"),
+    suggestedValue: yup.string().trim().required("Campo obrigatório"),
     description: yup.string().trim(),
     obs: yup.string().trim(),
   });

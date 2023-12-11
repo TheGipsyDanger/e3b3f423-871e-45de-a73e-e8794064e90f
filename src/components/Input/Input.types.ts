@@ -12,6 +12,7 @@ export namespace IInput {
     id: string;
     label?: string;
     value: string;
+    currency?: boolean;
     containerClassName?: HTMLProps<HTMLElement>["className"];
     className?: HTMLProps<HTMLElement>["className"];
     type?: HTMLInputTypeAttribute;

@@ -8,4 +8,5 @@ export interface ICreateBbqsForm<T> {
   description: T;
   obs: T;
   date: T;
+  suggestedValue: T;
 }
