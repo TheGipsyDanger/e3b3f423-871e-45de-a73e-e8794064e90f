@@ -12,8 +12,15 @@ import pt from "date-fns/locale/pt-BR";
 registerLocale("pt-BR", pt);
 
 export default function CreateBbqs(props: ICreateBbqs.IView) {
-  const { control, handleSubmit, errors, trigger, isValid, onSubmit } =
-    useCreateBbqs({});
+  const {
+    control,
+    handleSubmit,
+    errors,
+    trigger,
+    isValid,
+    onSubmit,
+    isLoading,
+  } = useCreateBbqs({});
 
   return (
     <Align.Row className="flex flex-1 justify-center">
@@ -32,9 +39,11 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
                 locale={"pt-BR"}
                 minDate={new Date()}
                 dateFormat="dd/MM/yyyy"
-                selected={value ? new Date(value) : new Date()}
+                placeholderText={`22/05/${new Date().getFullYear()}`}
+                selected={value ? new Date(value) : ("" as Date)}
                 onChange={(date) => {
                   onChange(date as Date);
+                  trigger("date");
                 }}
                 className={`mr-4 bg-gray-40 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500`}
               />
@@ -102,8 +111,9 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
         />
         <Button
           label="Entrar"
+          isLoading={isLoading}
           disabled={!isValid}
-          onClick={handleSubmit(onSubmit)}
+          onClick={isLoading ? () => {} : handleSubmit(onSubmit)}
           className="h-[44px] w-full"
         />
       </Align.Column>

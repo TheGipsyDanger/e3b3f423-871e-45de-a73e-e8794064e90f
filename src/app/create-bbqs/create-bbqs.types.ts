@@ -17,6 +17,7 @@ export namespace ICreateBbqs {
     onSubmit: (data: ICreateBbqsForm<string>) => void;
     isValid: boolean;
     date: Date;
+    isLoading: boolean;
     handleDate: (date: Date) => void;
   }
 }

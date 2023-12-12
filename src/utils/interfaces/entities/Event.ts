@@ -4,6 +4,7 @@ export interface IEvent {
   description: string;
   obs: string;
   date: string;
+  suggestedValue: string;
 }
 
 export interface IEventItem extends IEvent {

@@ -1,19 +1,35 @@
+"use client";
 import * as React from "react";
 import { Align } from "@/components/Align";
+import { Text } from "@/components/Text";
 import { IHeader } from "@/components/Header/Header.types";
+import { useHeader } from "@/components/Header/Header.model";
+import { FaRegCalendarPlus } from "react-icons/fa6";
 import Image from "next/image";
+import Styles from "./Header.styles";
 
-export const Header = (props: IHeader.IView) => (
-  <div
-    id={`Header`}
-    className="flex flex-1 h-[80px] lg:px-16 px-8 bg-white drop-shadow-sm items-center justify-center sm:justify-between"
-  >
-    <Align.Row>
-      <Image src="/images/logo.png" width={165} height={61} alt="logo" />
-    </Align.Row>
-    <Align.Row>
-      <div className="w-[180px] h-[60px] rounded bg-red-500 mr-2"></div>
-      <div className="w-[60px] h-[60px] rounded-full bg-red-500"></div>
-    </Align.Row>
-  </div>
-);
+export const Header = (props: IHeader.IView) => {
+  const { event } = useHeader({});
+  return (
+    <Styles.Container id={`Header`}>
+      <Align.Row>
+        <Image src="/images/logo.png" width={165} height={61} alt="logo" />
+      </Align.Row>
+      <Align.Row>
+        <Styles.NextEventContainer>
+          <Styles.NextEventContent>
+            <Text variants="body" className="text-black">
+              Próximo:
+            </Text>
+            <Text variants="body" className="text-black">
+              {event.title}
+            </Text>
+          </Styles.NextEventContent>
+        </Styles.NextEventContainer>
+        <Styles.IconBtn>
+          <FaRegCalendarPlus size={28} className="text-blue-500" />
+        </Styles.IconBtn>
+      </Align.Row>
+    </Styles.Container>
+  );
+};

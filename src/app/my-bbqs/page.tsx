@@ -1,13 +1,17 @@
+"use client";
 import { useMyBbqs } from "@/app/my-bbqs/my-bbqs.model";
 import { IMyBbqs } from "@/app/my-bbqs/my-bbqs.types";
 import { Align } from "@/components/Align";
+import { EventItem } from "@/components/EventItem";
 
 export default function MyBbqs(props: IMyBbqs.IView) {
-  const {} = useMyBbqs({});
+  const { events } = useMyBbqs({});
 
   return (
-    <Align.Row className="flex flex-1 justify-center">
-      <Align.Column className="w-1/2"></Align.Column>
-    </Align.Row>
+    <div className="flex-wrap flex flex-row flex-1 justify-between h-[220px]">
+      {events.map((event) => (
+        <EventItem key={event.id} {...event} />
+      ))}
+    </div>
   );
 }
