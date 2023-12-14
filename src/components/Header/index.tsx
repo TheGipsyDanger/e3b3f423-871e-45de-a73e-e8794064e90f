@@ -15,6 +15,7 @@ export const Header = () => {
       <Align.Row>
         <button data-testid={`HeaderLogoAction`} onClick={goToHome}>
           <Image
+            priority
             data-testid={`HeaderLogo`}
             alt="logo da marca com um icone de um boi e uma escrita com trinca bbq"
             src="/images/logo.png"
@@ -24,16 +25,14 @@ export const Header = () => {
         </button>
       </Align.Row>
       <Align.Row>
-        {event?.title && (
-          <Styles.NextEventContainer data-testid={`HeaderNextEvent`}>
-            <Styles.NextEventContent>
-              <Text variants="body">Próximo:</Text>
-              <Text variants="body" data-testid={`HeaderNextEventTitle`}>
-                {event?.title}
-              </Text>
-            </Styles.NextEventContent>
-          </Styles.NextEventContainer>
-        )}
+        <Styles.NextEventContainer data-testid={`HeaderNextEvent`}>
+          <Styles.NextEventContent>
+            <Text variants="body">Próximo:</Text>
+            <Text variants="body" data-testid={`HeaderNextEventTitle`}>
+              {event?.title ?? "Nenhum evento"}
+            </Text>
+          </Styles.NextEventContent>
+        </Styles.NextEventContainer>
         <Styles.IconBtn data-testid={`HeaderAction`} onClick={goToCreateEvent}>
           <FaRegCalendarPlus size={24} className="text-blue-500" />
         </Styles.IconBtn>
