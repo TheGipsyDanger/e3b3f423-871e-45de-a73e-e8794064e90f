@@ -23,16 +23,24 @@ export const EventItem = (props: IEventItem.IView) => {
 
   return (
     <Styles.Container
-      id="EventItem"
+      data-testid="EventItem"
       count={count}
       onClick={() => goToEvent(id)}
     >
       <Styles.Content>
         <Align.Column className="self-start mb-8">
-          <Text variants="h2" className="font-bold text-black">
+          <Text
+            data-testid="EventItemTitle"
+            variants="h2"
+            className="font-bold text-black"
+          >
             {title}
           </Text>
-          <Text variants="body" className="self-start text-gray-600">
+          <Text
+            data-testid="EventItemDate"
+            variants="body"
+            className="self-start text-gray-600"
+          >
             <Text variants="body" className="font-bold">
               {"Data: "}
             </Text>
@@ -42,7 +50,11 @@ export const EventItem = (props: IEventItem.IView) => {
         <Styles.Infos>
           <Styles.InfosPartOne>
             <BsPeopleFill className="text-black" size={30} />
-            <Text variants="h3" className="ml-2 text-black">
+            <Text
+              data-testid="EventItemParticipants"
+              variants="h3"
+              className="ml-2 text-black"
+            >
               {participants.length}
             </Text>
           </Styles.InfosPartOne>
@@ -52,7 +64,11 @@ export const EventItem = (props: IEventItem.IView) => {
                 <Text variants="body" className="font-bold">
                   {"Sugerido: "}
                 </Text>
-                <Text variants="body" className="font-bold text-gray-500">
+                <Text
+                  data-testid="EventItemSuggested"
+                  variants="body"
+                  className="font-bold text-gray-500"
+                >
                   {suggestedValue}
                 </Text>
               </Styles.InfosPartTwoRow>
@@ -60,7 +76,11 @@ export const EventItem = (props: IEventItem.IView) => {
                 <Text variants="body" className="font-bold">
                   {"Arrecadado: "}
                 </Text>
-                <Text variants="body" className="font-bold text-gray-500">
+                <Text
+                  data-testid="EventItemCollection"
+                  variants="body"
+                  className="font-bold text-gray-500"
+                >
                   {collection}
                 </Text>
               </Styles.InfosPartTwoRow>

@@ -16,7 +16,7 @@ export const ParticipantsTable = (props: IParticipantsTable.IView) => {
   }
 
   return (
-    <Styles.Table id={`ParticipantsTable`}>
+    <Styles.Table data-testid={`ParticipantsTable`}>
       <Styles.TableHeader>
         <tr>
           <Styles.Th>Nome</Styles.Th>
@@ -27,16 +27,21 @@ export const ParticipantsTable = (props: IParticipantsTable.IView) => {
       <tbody>
         {participants.map((participant, index) => (
           <Styles.TableRow key={participant.id}>
-            <Styles.TableItem>{participant.name}</Styles.TableItem>
-            <Styles.TableItem>
+            <Styles.TableItem data-testid={`ParticipantsTableName`}>
+              {participant.name}
+            </Styles.TableItem>
+            <Styles.TableItem data-testid={`ParticipantsTableStatus`}>
               <Styles.StatusContainer>
                 <Styles.Status paid={participant.status} />
                 {participant.status === "paid" ? "pago" : "aberto"}
               </Styles.StatusContainer>
             </Styles.TableItem>
-            <Styles.TableItem>{applyMask(participant.value)}</Styles.TableItem>
+            <Styles.TableItem data-testid={`ParticipantsTableValue`}>
+              {applyMask(participant.value)}
+            </Styles.TableItem>
             <Styles.TableItem>
               <Styles.EditLink
+                data-testid={`ParticipantsTableEdit`}
                 type="edit"
                 onClick={() => editParticipant(index)}
               >
@@ -45,6 +50,7 @@ export const ParticipantsTable = (props: IParticipantsTable.IView) => {
             </Styles.TableItem>
             <Styles.TableItem>
               <Styles.EditLink
+                data-testid={`ParticipantsTableDelete`}
                 type="delete"
                 onClick={() => deleteParticipant(participant.id)}
               >
@@ -58,7 +64,9 @@ export const ParticipantsTable = (props: IParticipantsTable.IView) => {
         <tr>
           <Styles.Th>Total</Styles.Th>
           <Styles.Th></Styles.Th>
-          <Styles.Th>{collection}</Styles.Th>
+          <Styles.Th data-testid={`ParticipantsTableCollection`}>
+            {collection}
+          </Styles.Th>
           <td></td>
         </tr>
       </tfoot>

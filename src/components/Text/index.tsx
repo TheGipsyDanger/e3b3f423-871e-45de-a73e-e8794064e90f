@@ -1,8 +1,13 @@
 import { IText } from "./Text.types";
 import Styles from "./Text.styles";
 
-export const Text = ({ variants = "h1", className, children }: IText.IView) => (
-  <Styles.Text variants={variants} className={className}>
+export const Text = ({
+  variants = "h1",
+  className,
+  children,
+  ...rest
+}: IText.IView) => (
+  <Styles.Text {...rest} variants={variants} className={className}>
     {children}
   </Styles.Text>
 );

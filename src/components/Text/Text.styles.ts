@@ -3,19 +3,19 @@ import { IText } from "./Text.types";
 
 const variantsText = {
   h1: css`
-    font-size: ${({ theme }) => theme.fontSizes.h1}px;
+    font-size: 22px;
   `,
   h2: css`
-    font-size: ${({ theme }) => theme.fontSizes.h2}px;
+    font-size: 20px;
   `,
   h3: css`
-    font-size: ${({ theme }) => theme.fontSizes.h3}px;
+    font-size: 18px;
   `,
   h4: css`
-    font-size: ${({ theme }) => theme.fontSizes.h4}px;
+    font-size: 16px;
   `,
   body: css`
-    font-size: ${({ theme }) => theme.fontSizes.body}px;
+    font-size: 13px;
   `,
 };
 

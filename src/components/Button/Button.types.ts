@@ -8,6 +8,6 @@ export namespace IButton {
   export interface IModelProps {}
   export interface IModel {}
   export interface IContainer {
-    disabledStatus: string;
+    disablestatus: string;
   }
 }

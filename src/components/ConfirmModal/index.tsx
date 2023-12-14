@@ -13,16 +13,20 @@ export const ConfirmModal = ({
   onClick,
   closeModal,
 }: IConfirmModal.IView) => (
-  <div id={`ConfirmModal`}>
+  <div data-testid={`ConfirmModal`}>
     <Modal>
       <Align.Column>
-        <Styles.IconBtn onClick={closeModal}>
+        <Styles.IconBtn data-testid={`ConfirmModalClose`} onClick={closeModal}>
           <IoMdClose />
         </Styles.IconBtn>
-        <Text variants="h2" className="mb-4">
+        <Text data-testid={`ConfirmModalTitle`} variants="h2" className="mb-4">
           {title}
         </Text>
-        <Text variants="body" className="mb-8">
+        <Text
+          data-testid={`ConfirmModalDescription`}
+          variants="body"
+          className="mb-8"
+        >
           {description}
         </Text>
       </Align.Column>

@@ -1,10 +1,15 @@
+import "@testing-library/jest-dom";
 import { GlobalWrapper } from "./";
-import { render } from "@testing-library";
+import { events } from "@/mocks";
+import { render, screen } from "@testing-library/react";
 
 describe("Render GlobalWrapper", () => {
-  it("Should be GlobalWrapper exist", () => {
-    const { getByTestId } = render(<GlobalWrapper />);
-    const currentElement = getByTestId(`GlobalWrapper`);
-    expect(currentElement).toBeTruthy();
+  it("Should be GlobalWrapper Container exist", () => {
+    render(<GlobalWrapper.Container />);
+    expect(screen.getByTestId(`GlobalWrapperContainer`)).toBeInTheDocument();
+  });
+  it("Should be GlobalWrapper Content exist", () => {
+    render(<GlobalWrapper.Content />);
+    expect(screen.getByTestId(`GlobalWrapperContent`)).toBeInTheDocument();
   });
 });

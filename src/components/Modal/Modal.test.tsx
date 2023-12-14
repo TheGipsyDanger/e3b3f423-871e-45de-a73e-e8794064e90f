@@ -1,10 +1,10 @@
+import "@testing-library/jest-dom";
 import { Modal } from "./";
-import { render } from "@testing-library";
+import { render, screen } from "@testing-library/react";
 
 describe("Render Modal", () => {
   it("Should be Modal exist", () => {
-    const { getByTestId } = render(<Modal />);
-    const currentElement = getByTestId(`Modal`);
-    expect(currentElement).toBeTruthy();
+    render(<Modal />);
+    expect(screen.getByTestId(`Modal`)).toBeInTheDocument();
   });
 });

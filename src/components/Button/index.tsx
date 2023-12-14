@@ -11,9 +11,9 @@ export const Button = ({
   return (
     <Styles.Container
       {...rest}
-      id={`Button`}
+      data-testid="Button"
       disabled={disabled}
-      disabledStatus={String(disabled)}
+      disablestatus={String(disabled)}
       className={className}
     >
       {isLoading ? (

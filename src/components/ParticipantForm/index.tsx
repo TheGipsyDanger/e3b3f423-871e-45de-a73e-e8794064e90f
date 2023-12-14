@@ -27,15 +27,25 @@ export const ParticipantForm = (props: IParticipantForm.IView) => {
 
   return (
     <>
-      <Styles.Bg id={`ParticipantForm`} className="bg-black opacity-20" />
+      <Styles.Bg
+        data-testid={`ParticipantForm`}
+        className="bg-black opacity-20"
+      />
       <Styles.Bg>
         <Styles.Container>
           <Styles.Content>
             <Align.Column className="flex flex-1">
-              <Styles.IconBtn onClick={closeModal}>
+              <Styles.IconBtn
+                data-testid={`ParticipantFormCloseAction`}
+                onClick={closeModal}
+              >
                 <IoMdClose />
               </Styles.IconBtn>
-              <Text variants="h3" className="font-bold self-center mb-8">
+              <Text
+                data-testid={`ParticipantFormTitle`}
+                variants="h3"
+                className="font-bold self-center mb-8"
+              >
                 {isEdit ? "Editar convidado" : "Adicionar convidado"}
               </Text>
               <Controller

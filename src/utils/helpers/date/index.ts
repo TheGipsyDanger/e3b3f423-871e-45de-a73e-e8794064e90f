@@ -1,5 +1,5 @@
 import { IEvent } from "@/utils";
-import { parse, format } from "date-fns";
+import { format } from "date-fns";
 
 export const useDate = () => {
   const sortDate = (events: IEvent[]): IEvent[] => {
