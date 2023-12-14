@@ -1,5 +1,5 @@
-import { createSlice, current } from "@reduxjs/toolkit";
-import { IEvent, IParticipant, defineTypes, useDate } from "@/utils";
+import { createSlice } from "@reduxjs/toolkit";
+import { IEvent, defineTypes, useDate } from "@/utils";
 
 const Type = defineTypes("Events");
 
