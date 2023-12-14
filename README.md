@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+<br />
+<br />
+<br />
+<br />
+<div align="center">
+  <a href="https://github.com/TheGipsyDanger/e3b3f423-871e-45de-a73e-e8794064e90f/assets/22872282/87f5c4ac-bd89-4334-ad67-b602a5a90280">
+    <img src="https://github.com/TheGipsyDanger/e3b3f423-871e-45de-a73e-e8794064e90f/assets/22872282/87f5c4ac-bd89-4334-ad67-b602a5a90280" alt="Logo" width="161" height="80">
+  </a>
+  <h3 align="center">Trinca BBQ</h3>
+</div>
 
-First, run the development server:
+### Contruido com:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+* [![Next][Next.js]][Next-url]
+* [![React][React.js]][React-url]
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Na sua maquina:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone o projeto
+2. yarn install
+3. yarn dev
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+<!-- CONTACT -->
+## Contato:
+[![LinkedIn][linkedin-shield]][linkedin-url]
+Renan Henrique - renan.henrique.fonte@gmail.com
 
-To learn more about Next.js, take a look at the following resources:
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: [https://linkedin.com/in/othneildrew](https://www.linkedin.com/in/renanfonte/)
+[product-screenshot]: images/screenshot.png
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
+[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[React-url]: https://reactjs.org/
