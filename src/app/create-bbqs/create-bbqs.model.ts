@@ -1,22 +1,18 @@
 import { useState } from "react";
-import { ICreateBbqs } from "@/app/create-bbqs/create-bbqs.types";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  ICreateBbqsForm,
-  createBbqSchema,
-  useAppDispatch,
-  useAppSelector,
-} from "@/utils";
 import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/navigation";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { ICreateBbqsForm, createBbqSchema, useAppDispatch } from "@/utils";
 import * as eventsActions from "@/redux/actions/EventsActions";
 
-export const useCreateBbqs = (
-  props: ICreateBbqs.IModelProps
-): ICreateBbqs.IModel => {
+import { ICreateBbqs } from "./create-bbqs.types";
+
+export const useCreateBbqs = (): ICreateBbqs.IModel => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useAppDispatch();
-  const events = useAppSelector((state) => state.Events.events);
   const [date, setDate] = useState(new Date());
   const {
     control,
@@ -32,8 +28,11 @@ export const useCreateBbqs = (
   const onSubmit = (params: ICreateBbqsForm<string>) => {
     setIsLoading(true);
     setTimeout(() => {
-      dispatch(eventsActions.setEvent({ id: uuidv4(), ...params }));
+      dispatch(
+        eventsActions.setEvent({ id: uuidv4(), participants: [], ...params })
+      );
       setIsLoading(false);
+      router.push("/my-bbqs");
     }, 2000);
   };
 

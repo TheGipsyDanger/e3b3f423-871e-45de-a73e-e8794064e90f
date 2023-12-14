@@ -1,8 +1,7 @@
-import * as React from "react";
-import { IAlign } from "@/components/Align/Align.types";
+import { IAlign } from "./Align.types";
 
-export const Column = ({ children, className }: IAlign.IView) => (
-  <div id={`Align-Row`} className={`flex flex-col ${className}`}>
+export const Column = ({ id = "", children, className }: IAlign.IView) => (
+  <div id={id} className={`flex flex-col ${className}`}>
     {children}
   </div>
 );

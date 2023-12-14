@@ -1,17 +1,22 @@
 "use client";
-import { useMyBbqs } from "@/app/my-bbqs/my-bbqs.model";
-import { IMyBbqs } from "@/app/my-bbqs/my-bbqs.types";
-import { Align } from "@/components/Align";
 import { EventItem } from "@/components/EventItem";
+import { SameError } from "@/components/SameError";
 
-export default function MyBbqs(props: IMyBbqs.IView) {
-  const { events } = useMyBbqs({});
+import { useMyBbqs } from "./my-bbqs.model";
+import Styles from "./my-bbqs.styles";
+
+export default function MyBbqs() {
+  const { events } = useMyBbqs();
+
+  if (!events.length) {
+    return <SameError message={"Nenhum evento cadastrado"} />;
+  }
 
   return (
-    <div className="flex-wrap flex flex-row flex-1 justify-between h-[220px]">
-      {events.map((event) => (
-        <EventItem key={event.id} {...event} />
+    <Styles.Container>
+      {events.map((event, index) => (
+        <EventItem key={index} count={events.length} {...event} />
       ))}
-    </div>
+    </Styles.Container>
   );
 }

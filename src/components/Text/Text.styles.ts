@@ -20,7 +20,7 @@ const variantsText = {
 };
 
 export default {
-  Text: styled.text<IText.ITextStyle>`
+  Text: styled.span<IText.ITextStyle>`
     ${({ variants }) => variantsText[variants as keyof typeof variantsText]};
   `,
 };

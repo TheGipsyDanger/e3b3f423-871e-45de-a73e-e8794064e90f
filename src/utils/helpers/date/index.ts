@@ -1,4 +1,5 @@
 import { IEvent } from "@/utils";
+import { parse, format } from "date-fns";
 
 export const useDate = () => {
   const sortDate = (events: IEvent[]): IEvent[] => {
@@ -9,7 +10,12 @@ export const useDate = () => {
     });
   };
 
+  const applyDateMask = (date: string): string => {
+    return format(new Date(date), "dd/MM/yyyy");
+  };
+
   return {
     sortDate,
+    applyDateMask,
   };
 };

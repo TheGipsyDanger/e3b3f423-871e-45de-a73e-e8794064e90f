@@ -10,3 +10,9 @@ export interface ICreateBbqsForm<T> {
   date: T;
   suggestedValue: T;
 }
+
+export interface IParticipantForm<T> {
+  name: T;
+  value: T;
+  status: T;
+}

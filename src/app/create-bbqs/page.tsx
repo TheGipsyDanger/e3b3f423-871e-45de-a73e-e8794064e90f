@@ -1,17 +1,19 @@
 "use client";
-import DatePicker from "react-datepicker";
-import { useCreateBbqs } from "@/app/create-bbqs/create-bbqs.model";
-import { ICreateBbqs } from "@/app/create-bbqs/create-bbqs.types";
+import { Controller } from "react-hook-form";
+import DatePicker, { registerLocale } from "react-datepicker";
+import pt from "date-fns/locale/pt-BR";
+
 import { Align } from "@/components/Align";
 import { Input } from "@/components/Input";
 import { Button } from "@/components/Button";
 import { Text } from "@/components/Text";
-import { Controller } from "react-hook-form";
-import { registerLocale } from "react-datepicker";
-import pt from "date-fns/locale/pt-BR";
+
+import { useCreateBbqs } from "./create-bbqs.model";
+import Styles from "./create-bbqs.styles";
+
 registerLocale("pt-BR", pt);
 
-export default function CreateBbqs(props: ICreateBbqs.IView) {
+export default function CreateBbqs() {
   const {
     control,
     handleSubmit,
@@ -20,11 +22,11 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
     isValid,
     onSubmit,
     isLoading,
-  } = useCreateBbqs({});
+  } = useCreateBbqs();
 
   return (
-    <Align.Row className="flex flex-1 justify-center">
-      <Align.Column className="w-1/2">
+    <Styles.Container id="CreateBbqs">
+      <Styles.Content>
         <Controller
           control={control}
           name="date"
@@ -40,6 +42,7 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
                 minDate={new Date()}
                 dateFormat="dd/MM/yyyy"
                 placeholderText={`22/05/${new Date().getFullYear()}`}
+                // @ts-ignore
                 selected={value ? new Date(value) : ("" as Date)}
                 onChange={(date) => {
                   onChange(date as Date);
@@ -116,7 +119,7 @@ export default function CreateBbqs(props: ICreateBbqs.IView) {
           onClick={isLoading ? () => {} : handleSubmit(onSubmit)}
           className="h-[44px] w-full"
         />
-      </Align.Column>
-    </Align.Row>
+      </Styles.Content>
+    </Styles.Container>
   );
 }

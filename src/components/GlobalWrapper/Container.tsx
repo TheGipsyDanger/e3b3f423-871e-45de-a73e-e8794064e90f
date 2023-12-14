@@ -1,8 +1,7 @@
-import * as React from "react";
-import { IGlobalWrapper } from "@/components/GlobalWrapper/GlobalWrapper.types";
+import { IGlobalWrapper } from "./GlobalWrapper.types";
 
 export const Container = ({ children }: IGlobalWrapper.IView) => (
-  <div id={`Container`} className="flex justify-center h-screen w-full">
+  <div id={`Container`} className="flex justify-center h-full w-full">
     {children}
   </div>
 );

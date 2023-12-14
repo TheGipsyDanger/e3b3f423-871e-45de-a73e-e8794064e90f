@@ -1,7 +1,8 @@
-import { IMyBbqs } from "@/app/my-bbqs/my-bbqs.types";
 import { useAppSelector } from "@/utils";
 
-export const useMyBbqs = (props: IMyBbqs.IModelProps): IMyBbqs.IModel => {
+import { IMyBbqs } from "./my-bbqs.types";
+
+export const useMyBbqs = (): IMyBbqs.IModel => {
   const events = useAppSelector((state) => state.Events.events);
   return {
     events,

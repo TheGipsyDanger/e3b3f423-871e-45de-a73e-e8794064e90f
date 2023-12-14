@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Text } from "@/components/Text";
-import { IInput } from "@/components/Input/Input.types";
 import { ITriggerFormInput, useCurrency } from "@/utils";
-import { currency as currencyRemask } from "remask";
+import { Align } from "@/components/Align";
+import { Text } from "@/components/Text";
+
+import { IInput } from "./Input.types";
 
 export const OneLine = ({
   id,
@@ -17,17 +17,20 @@ export const OneLine = ({
   trigger,
   className,
   currency = false,
+  complementLabel,
   containerClassName,
 }: IInput.IView) => {
   const { applyMask, removeMask } = useCurrency();
-
   return (
     <div id={`Input-${id}`} className={containerClassName}>
-      <div className="mb-2">
+      <Align.Row className="justify-between items-center  mb-2">
         <Text variants="h4" className="text-black font-bold">
           {label}
         </Text>
-      </div>
+        <Text variants="body" className="text-gray-400">
+          {complementLabel}
+        </Text>
+      </Align.Row>
       <input
         id={id}
         type={type}

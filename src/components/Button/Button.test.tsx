@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { Button }from './';
-import { render } from '@testing-library';
+import { Button } from "./";
+import { render } from "@testing-library";
 
-describe('Render Button', () => {
-  it('Should be Button exist', () => {
+describe("Render Button", () => {
+  it("Should be Button exist", () => {
     const { getByTestId } = render(<Button />);
     const currentElement = getByTestId(`Button`);
     expect(currentElement).toBeTruthy();

@@ -1,49 +1,73 @@
-import * as React from "react";
-import { IEventItem } from "@/components/EventItem/EventItem.types";
+import { BsPeopleFill } from "react-icons/bs";
+
 import { Align } from "@/components/Align";
 import { Text } from "@/components/Text";
-import { BsPeopleFill } from "react-icons/bs";
-import Styles from "./EventItem.styles";
-import { useCurrency } from "@/utils";
+import { useDate } from "@/utils";
 
-export const EventItem = ({ title, suggestedValue }: IEventItem.IView) => {
-  const { applyMask } = useCurrency();
+import { useEventItem } from "./EventItem.model";
+import { IEventItem } from "./EventItem.types";
+import Styles from "./EventItem.styles";
+
+export const EventItem = (props: IEventItem.IView) => {
+  const { applyDateMask } = useDate();
+  const {
+    goToEvent,
+    suggestedValue,
+    participants,
+    collection,
+    id,
+    title,
+    date,
+    count,
+  } = useEventItem(props);
+
   return (
-    <Styles.Container>
-      <Align.Column className="flex flex-1 m-2 shadow-xl rounded-lg justify-center px-4">
-        <Text variants="h1" className="font-bold text-black mb-4">
-          {title}
-        </Text>
-        <Align.Row className="justify-between">
-          <Align.Row className="items-center">
+    <Styles.Container
+      id="EventItem"
+      count={count}
+      onClick={() => goToEvent(id)}
+    >
+      <Styles.Content>
+        <Align.Column className="self-start mb-8">
+          <Text variants="h2" className="font-bold text-black">
+            {title}
+          </Text>
+          <Text variants="body" className="self-start text-gray-600">
+            <Text variants="body" className="font-bold">
+              {"Data: "}
+            </Text>
+            {applyDateMask(date)}
+          </Text>
+        </Align.Column>
+        <Styles.Infos>
+          <Styles.InfosPartOne>
             <BsPeopleFill className="text-black" size={30} />
             <Text variants="h3" className="ml-2 text-black">
-              {14}
+              {participants.length}
             </Text>
-          </Align.Row>
-          <Align.Row className="flex-1 items-center">
-            <Align.Column className="flex flex-1 px-6">
-              <Align.Row className="flex flex-1 justify-between">
-                <Text variants="body" className="text-black">
+          </Styles.InfosPartOne>
+          <Styles.InfosPartTwo>
+            <Styles.InfosPartTwoDetails>
+              <Styles.InfosPartTwoRow>
+                <Text variants="body" className="font-bold">
                   {"Sugerido: "}
                 </Text>
-                <Text variants="body" className="text-black">
-                  {applyMask(suggestedValue)}
+                <Text variants="body" className="font-bold text-gray-500">
+                  {suggestedValue}
                 </Text>
-              </Align.Row>
-              {/*  */}
-              <Align.Row className="flex flex-1 justify-between">
-                <Text variants="body" className="text-black">
+              </Styles.InfosPartTwoRow>
+              <Styles.InfosPartTwoRow>
+                <Text variants="body" className="font-bold">
                   {"Arrecadado: "}
                 </Text>
-                <Text variants="body" className="text-black">
-                  {applyMask(suggestedValue)}
+                <Text variants="body" className="font-bold text-gray-500">
+                  {collection}
                 </Text>
-              </Align.Row>
-            </Align.Column>
-          </Align.Row>
-        </Align.Row>
-      </Align.Column>
+              </Styles.InfosPartTwoRow>
+            </Styles.InfosPartTwoDetails>
+          </Styles.InfosPartTwo>
+        </Styles.Infos>
+      </Styles.Content>
     </Styles.Container>
   );
 };

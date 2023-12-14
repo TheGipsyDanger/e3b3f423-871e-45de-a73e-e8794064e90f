@@ -1,13 +1,12 @@
-import * as React from "react";
-import { Text } from "@/components/Text";
-import { IInput } from "@/components/Input/Input.types";
 import { ITriggerFormInput } from "@/utils";
+import { Text } from "@/components/Text";
+
+import { IInput } from "./Input.types";
 
 export const TextArea = ({
   id,
   label = "",
   placeholder,
-  type = "text",
   required = false,
   errors,
   name,

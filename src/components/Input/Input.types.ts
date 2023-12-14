@@ -11,6 +11,7 @@ export namespace IInput {
   export interface IView {
     id: string;
     label?: string;
+    complementLabel?: string;
     value: string;
     currency?: boolean;
     containerClassName?: HTMLProps<HTMLElement>["className"];

@@ -5,5 +5,7 @@ export namespace IHeader {
   export interface IModelProps {}
   export interface IModel {
     event: IEvent;
+    goToHome: () => void;
+    goToCreateEvent: () => void;
   }
 }

@@ -1,5 +1,5 @@
-import * as React from "react";
-import { IButton } from "@/components/Button/Button.types";
+import { IButton } from "./Button.types";
+import Styles from "./Button.styles";
 
 export const Button = ({
   label,
@@ -8,16 +8,13 @@ export const Button = ({
   isLoading,
   ...rest
 }: IButton.IView) => {
-  const style = disabled
-    ? `bg-gray-500 hover:bg-gray-700 focus:ring-gray-400`
-    : `bg-blue-500 hover:bg-blue-700 focus:ring-blue-400`;
-
   return (
-    <button
+    <Styles.Container
       {...rest}
       id={`Button`}
       disabled={disabled}
-      className={`text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-opacity-75 ${style} ${className}`}
+      disabledStatus={String(disabled)}
+      className={className}
     >
       {isLoading ? (
         <div role="status">
@@ -42,6 +39,6 @@ export const Button = ({
       ) : (
         label
       )}
-    </button>
+    </Styles.Container>
   );
 };

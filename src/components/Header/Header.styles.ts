@@ -34,6 +34,6 @@ export default {
     items-center 
     justify-center 
     flex
-     hover:bg-slate-50
+  hover:bg-slate-50
   `,
 };

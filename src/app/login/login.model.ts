@@ -2,8 +2,9 @@ import { ILogin } from "@/app/login/login.types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ILoginForm, loginSchema } from "@/utils";
+import { useRouter } from "next/navigation";
 
-export const useLogin = (props: ILogin.IModelProps): ILogin.IModel => {
+export const useLogin = (): ILogin.IModel => {
   const {
     control,
     trigger,
@@ -13,8 +14,10 @@ export const useLogin = (props: ILogin.IModelProps): ILogin.IModel => {
     resolver: yupResolver(loginSchema),
   });
 
+  const router = useRouter();
+
   const onSubmit = (params: ILoginForm<string>) => {
-    // dispatch(loginActions.request(params));
+    router.push("/my-bbqs");
   };
 
   return {

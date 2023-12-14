@@ -6,7 +6,7 @@ import {
   FieldValues,
 } from "react-hook-form";
 
-import { ILoginForm, ICreateBbqsForm } from "../formSchema";
+import { ILoginForm, ICreateBbqsForm, IParticipantForm } from "../formSchema";
 
 import * as yup from "yup";
 
@@ -25,11 +25,14 @@ export type ISchema<
 
 export type IFormInputNameAccepeted =
   | keyof ILoginForm<string>
-  | keyof ICreateBbqsForm<string>;
+  | keyof ICreateBbqsForm<string>
+  | keyof IParticipantForm<string>;
 
 export type IFormErrosAccepeted = IFormErros<ILoginForm<string>> &
+  IFormErros<IParticipantForm<string>> &
   IFormErros<ICreateBbqsForm<string>>;
 
 export type ITriggerFormInput =
   | ITrigger<ILoginForm<string>>
+  | ITrigger<IParticipantForm<string>>
   | ITrigger<ICreateBbqsForm<string>>;

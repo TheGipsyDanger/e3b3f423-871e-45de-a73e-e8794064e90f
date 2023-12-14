@@ -1,3 +1,5 @@
+import { IParticipant } from ".";
+
 export interface IEvent {
   id: string;
   title: string;
@@ -5,8 +7,5 @@ export interface IEvent {
   obs: string;
   date: string;
   suggestedValue: string;
-}
-
-export interface IEventItem extends IEvent {
-  participants: [];
+  participants: IParticipant[];
 }

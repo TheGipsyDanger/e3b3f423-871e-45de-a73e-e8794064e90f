@@ -4,5 +4,6 @@ export interface IUser {
 }
 
 export interface IParticipant extends IUser {
-  value: number;
+  value: string;
+  status: string;
 }

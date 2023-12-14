@@ -1,18 +1,19 @@
 "use client";
-import { Input } from "@/components/Input";
-import { Align } from "@/components/Align";
-import { Button } from "@/components/Button";
-import { ILogin } from "@/app/login/login.types";
-import { useLogin } from "@/app/login/login.model";
 import { Controller } from "react-hook-form";
 
-export default function Login(props: ILogin.IView) {
+import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
+
+import { useLogin } from "./login.model";
+import Styles from "./login.styles";
+
+export default function Login() {
   const { control, handleSubmit, errors, trigger, isValid, onSubmit } =
-    useLogin({});
+    useLogin();
 
   return (
-    <Align.Row className="flex flex-1 justify-center">
-      <Align.Column className="w-1/2">
+    <Styles.Container id="Login">
+      <Styles.Content>
         <Controller
           control={control}
           name="email"
@@ -43,12 +44,13 @@ export default function Login(props: ILogin.IView) {
           )}
         />
         <Button
+          isLoading={false}
           label="Entrar"
           disabled={!isValid}
           onClick={handleSubmit(onSubmit)}
           className="h-[44px] w-full"
         />
-      </Align.Column>
-    </Align.Row>
+      </Styles.Content>
+    </Styles.Container>
   );
 }
